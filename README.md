@@ -1,1 +1,1 @@
-# Financial-Data-Science
+# Financial Data Science
