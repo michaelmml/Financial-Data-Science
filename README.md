@@ -42,10 +42,19 @@ guess_ages = data.groupby(['S', 'P'])['Age'].apply(np.mean)
 # The loc selector works by Boolean.
 ```
 
+General data manipulation - selection methods and dataframe transformation methods
+
+```
+data.iloc[X, :]
+data.loc[Boolean, col]
+data[[col1,col2]] # returns columns as new dataframe
+
+```
+
 Changing row data through filter, sort and various mappings. For numerical data, filter is a common tool to omit extremes and creating data-bands to normalise data (e.g. on age data).
 
 ```
-# Mapping to numerical categories
+# Mapping - integer encoding
 title_mapping = {"Mr": 1, "Miss": 2, "Mrs": 3, "Master": 4, "Rare": 5}
 data['Title'] = data['Title'].map(title_mapping)
 
@@ -69,3 +78,16 @@ data[new_col] = data[data[grouping_2] == "None"].groupby([grouping])[col].apply(
 # Index based on column data mathematics (e.g. find date index of the half-life)
 dataindex = allprodrate[[grouping, half_life_amount]].apply(lambda x: abs(data.loc[(data[grouping] ==
                         x[grouping]), total_amount] - x[half_life_amount]).idxmin(), axis=1)
+
+```
+
+Categories
+
+```
+categorical_subset = pd.get_dummies(categorical_subset)
+# targets_dummy = pd.get_dummies(targets, inplace = True)
+# One hot encode - creates two columns if two possibilities, different to integer encoding
+targets.Churn = [Result[item] for item in targets.Churn]
+
+```
+
