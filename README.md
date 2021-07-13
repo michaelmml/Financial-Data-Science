@@ -49,6 +49,9 @@ Changing row data through filter, sort and various mappings. For numerical data,
 title_mapping = {"Mr": 1, "Miss": 2, "Mrs": 3, "Master": 4, "Rare": 5}
 data['Title'] = data['Title'].map(title_mapping)
 
+# Sort
+data = data[data[col] > 1]
+
 # Mapping numerical data to data-bands
 data['AgeBand'] = pd.cut(data['Age'], 5)
 data.loc[data['Age'] <= 16, 'Age'] = 0
@@ -56,3 +59,13 @@ data.loc[(data['Age'] > 16) & (data['Age'] <= 32), 'Age'] = 1
 data.loc[(data['Age'] > 32) & (data['Age'] <= 48), 'Age'] = 2
 data.loc[(data['Age'] > 48) & (data['Age'] <= 64), 'Age'] = 3
 data.loc[data['Age'] > 64, 'Age'] = 4
+
+# More complex usage of apply method
+data[new_col] = data.groupby([grouping])[col].apply(lambda x: x.fillna(0).cumsum())
+
+# Alongside filtering
+data[new_col] = data[data[grouping_2] == "None"].groupby([grouping])[col].apply(lambda x: x.fillna(0).cumsum())
+
+# Index based on column data mathematics (e.g. find date index of the half-life)
+dataindex = allprodrate[[grouping, half_life_amount]].apply(lambda x: abs(data.loc[(data[grouping] ==
+                        x[grouping]), total_amount] - x[half_life_amount]).idxmin(), axis=1)
