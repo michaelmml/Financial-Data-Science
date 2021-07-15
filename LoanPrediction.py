@@ -41,40 +41,6 @@ import seaborn as sns
 sns.set(font_scale=2)
 data = pd.read_csv('SBAsubset.csv')
 
-
-"""def missing_values_table(df):
-    # Total missing values
-    mis_val = df.isnull().sum()
-
-    # Percentage of missing values
-    mis_val_percent = 100 * df.isnull().sum() / len(df)
-
-    # Make a table with the results
-    mis_val_table = pd.concat([mis_val, mis_val_percent], axis=1)
-
-    # Rename the columns
-    mis_val_table_ren_columns = mis_val_table.rename(
-        columns={0: 'Missing Values', 1: '% of Total Values'})
-
-    # Sort the table by percentage of missing descending
-    mis_val_table_ren_columns = mis_val_table_ren_columns[
-        mis_val_table_ren_columns.iloc[:, 1] != 0].sort_values(
-        '% of Total Values', ascending=False).round(1)
-
-    # Print some summary information
-    print("Your selected dataframe has " + str(df.shape[1]) + " columns.\n"
-                                                              "There are " + str(mis_val_table_ren_columns.shape[0]) +
-          " columns that have missing values.")
-
-    # Return the dataframe with missing information
-    return mis_val_table_ren_columns
-
-
-# Get the columns with > 50% missing
-missing_df = missing_values_table(data);
-missing_columns = list(missing_df[missing_df['% of Total Values'] > 50].index)
-"""
-
 data = data.drop(['LoanNr_ChkDgt', 'Name', 'City', 'Zip', 'BankState', 'ApprovalDate', 'DisbursementDate',
                   'DisbursementGross'], axis=1)
 
@@ -239,28 +205,3 @@ print('Gradient Boosted Classification: %0.4f' % acc_gradient_boosted)
 repeatedkfold = RepeatedKFold(n_splits=5, n_repeats=3, random_state=1)
 cv_results = cross_val_score(gradient_boosted, X, y, cv=repeatedkfold, scoring='accuracy')
 print(mean(cv_results))
-
-"""# Importing the Keras libraries and packages
-
-from keras.models import Sequential
-from keras.layers import Dense
-
-#Initializing Neural Network
-classifier = Sequential()
-
-# Adding the input layer and the first hidden layer
-classifier.add(Dense(output_dim = 6, init = 'uniform', activation = 'relu', input_dim = 11))
-# Adding the second hidden layer
-classifier.add(Dense(output_dim = 6, init = 'uniform', activation = 'relu'))
-# Adding the output layer
-classifier.add(Dense(output_dim = 1, init = 'uniform', activation = 'sigmoid'))
-
-# Compiling Neural Network
-classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
-
-# Fitting our model
-classifier.fit(X, y, batch_size = 10, nb_epoch = 100)
-
-# Predicting the Test set results
-y_pred = classifier.predict(X_test)
-y_pred = (y_pred > 0.5)"""
