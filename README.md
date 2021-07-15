@@ -3,6 +3,7 @@ Leveraging statistical and data science techniques in analysing financial inform
 
 ## Table of Contents
 * [Exploratory Data Analysis](#exploratory-data-analysis)
+* [SBA Loan EDA](#sba-loan-eda)
 
 ## Exploratory Data Analysis
 **Cleaning Data**
@@ -91,3 +92,18 @@ targets.Churn = [Result[item] for item in targets.Churn]
 
 ```
 
+## SBA Loan EDA
+
+Resulting clean-up gives two numerical subsets - term and number of employees. Rescaled with minmax. The remaining are categorical data (either binary or else one-hot encode is applied) and percentages.
+
+ X   Column         Non-Null Count   Dtype  
+---  ------         --------------   -----  
+ 0   Term           136062 non-null  int64  
+ 1   NoEmp          136062 non-null  int64  
+ 2   NewExist       136062 non-null  int64  
+ 3   FranchiseCode  136062 non-null  int64  
+ 4   UrbanRural     136062 non-null  int64   
+ 5   ApprovalRatio  136062 non-null  float64
+ 6   LowDoc_Yes     136062 non-null  uint8  
+ 7   RevLine_Yes    136062 non-null  uint8  
+ 8   JobGrowth      136062 non-null  float64
