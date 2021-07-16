@@ -48,7 +48,8 @@ data = pd.get_dummies(data, columns=[col], prefix=['col'])
 
 Resulting clean-up gives two numerical subsets - term and number of employees. Rescaled with minmax. The remaining are categorical data (either binary or else one-hot encode is applied) and percentages. To deal with certain other categories with a large number of unique entries, Groupby / Pivot and correlation analysis can be performed to determine the "importance" of those columns.
 
-#### X   -Column         -Non-Null -Count   -Dtype
+```
+# X   -Column         -Non-Null -Count   -Dtype
  0   -Term           -136062 -non-null  -int64  
  1   -NoEmp          -136062 -non-null  -int64  
  2   -NewExist       -136062 -non-null  -int64  
@@ -58,6 +59,7 @@ Resulting clean-up gives two numerical subsets - term and number of employees. R
  6   -LowDoc_Yes     -136062 -non-null  -uint8  
  7   -RevLine_Yes    -136062 -non-null  -uint8  
  8   -JobGrowth      -136062 -non-null  -float64
+```
 
 Final touches with train_test_split to create to separate sets of data for training and testing, following by scaler function mainly for the numerical data, i.e. loan term and number of employees.
 
