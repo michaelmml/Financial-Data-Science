@@ -54,7 +54,7 @@ Resulting clean-up gives two numerical subsets - term and number of employees. R
  2   -NewExist       -136062 -non-null  -int64  
  3   -FranchiseCode  -136062 -non-null  -int64  
  4   -UrbanRural     -136062 -non-null  -int64   
- 5   -ApprovalRatio  -136062 -non-null  -float64
+ 5   -ApprovalRatio  -136062 -non-null  -float64   
  6   -LowDoc_Yes     -136062 -non-null  -uint8  
  7   -RevLine_Yes    -136062 -non-null  -uint8  
  8   -JobGrowth      -136062 -non-null  -float64
