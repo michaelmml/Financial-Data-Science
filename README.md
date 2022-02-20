@@ -1,6 +1,8 @@
 # Financial Data Science
 Leveraging statistical and data science techniques in analysing financial information and application of machine learning. Importance of an efficient data cleaning approach due to the quantity of data. Financial news / data extraction from Twitter and news; exploratory data analysis with sentiment analysis using DistilBERT.
 
+![FinSentiment](https://user-images.githubusercontent.com/84533632/154868200-ebd14d16-d407-413f-8e50-35350d8f2eee.PNG)
+
 ## Specific Example (Outdated)
 In this case, ~130,000 SBA loan applications by SMEs. Data often also has undefined entries / blanks and various approaches are required to resolve this - whether in dropping the data or filling it by a set of conditions. Another problem is the number of categories, e.g. by state, sector, bank with a large range of unique entries that make numerical / one-hot encoding impractical.
 
