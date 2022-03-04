@@ -9,12 +9,11 @@ Black-Scholes option pricing for exchange options; birth-death-migration simulat
 ### Specific Example (Outdated)
 In this case, ~130,000 SBA loan applications by SMEs. Data often also has undefined entries / blanks and various approaches are required to resolve this - whether in dropping the data or filling it by a set of conditions. Another problem is the number of categories, e.g. by state, sector, bank with a large range of unique entries that make numerical / one-hot encoding impractical.
 
-### Table of Contents
+#### Table of Contents
 * [Exploratory Data Analysis](#exploratory-data-analysis)
 * [SBA Loan EDA](#sba-loan-eda)
 
-### Exploratory Data Analysis
-**Managing Financial Data**
+#### EDA of Financial Information
 
 Methods to clean strings such as dollar amounts or unusual expressions.
 
@@ -52,7 +51,7 @@ data = pd.get_dummies(data, columns=[col], prefix=['col'])
 ```
 
 
-### SBA Loan EDA
+#### SBA Loan EDA
 
 Resulting clean-up gives two numerical subsets - term and number of employees. Rescaled with minmax. The remaining are categorical data (either binary or else one-hot encode is applied) and percentages. To deal with certain other categories with a large number of unique entries, Groupby / Pivot and correlation analysis can be performed to determine the "importance" of those columns.
 
