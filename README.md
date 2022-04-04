@@ -6,6 +6,10 @@ Leveraging statistical and data science techniques in analysing financial inform
 ### Black-Scholes / Poisson Process
 Black-Scholes option pricing for exchange options; birth-death-migration simulation
 
+### Systematic / Algorithmic Investing
+
+![YFinancer (2)](https://user-images.githubusercontent.com/84533632/161648853-a1c31663-55d2-4b44-8534-41bf42921bf4.png)
+
 ### Specific Example (Outdated)
 In this case, ~130,000 SBA loan applications by SMEs. Data often also has undefined entries / blanks and various approaches are required to resolve this - whether in dropping the data or filling it by a set of conditions. Another problem is the number of categories, e.g. by state, sector, bank with a large range of unique entries that make numerical / one-hot encoding impractical.
 
